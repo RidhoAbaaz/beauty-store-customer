@@ -1,0 +1,166 @@
+.mainLayout {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    gap: 50px 20px;
+    padding: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.container figure {
+    margin: 0;
+    border-radius: 15px;
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.infoWrapper {
+    display: grid;
+    grid-column: 2 / span 3;
+    gap: 60px 18px;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+    padding: 18px;
+    background-color: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 18px;
+    box-shadow: 0 0px 25px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(6px);
+    align-content: center;
+}
+
+.selection {
+    padding: 10px;
+    display: grid;
+    gap: 14px 16px;
+    background-color: var(--secondary-color);
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.unit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    grid-column: 1/ span 2;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 14px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.counter p {
+    background-color: var(--primary-bg-color);
+    width: 56px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.counter button {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+    display: grid;
+    place-items: center;
+}
+
+.counter button:hover {
+    transform: scale(1.08);
+}
+
+.counter button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.totalPrice {
+    grid-column: 1 / span 2;
+}
+
+.icon {
+    color: red;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    gap: 20px;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    min-height: 170px;
+}
+
+.description h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.description p {
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.btnWrapper {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(0,0,0,0.06);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}

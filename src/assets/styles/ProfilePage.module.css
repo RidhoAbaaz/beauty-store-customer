@@ -1,0 +1,78 @@
+.pageLayout {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.header h3 {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2b2b2b;
+}
+
+.mainContent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.title {
+    grid-column: 1 / span 2;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.addressContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addressContainer h3 {
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 0.02em;
+    color: #2b2b2b;
+    font-size: 15px;
+}
+
+.addressWrapper {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.addBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 30px;
+    background-color: #D0A8A8;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #2b2b2b;
+    transition: all 0.3s ease-in-out;
+}
+
+.addBtn p {
+    font-size: 12px;
+}
+
+.addBtn:hover {
+    background-color: #c89898; /* opsional agar terasa interaktif */
+    transform: scale(1.02);
+}

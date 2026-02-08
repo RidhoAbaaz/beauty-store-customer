@@ -1,0 +1,156 @@
+/*Styles Card Base*/
+.card {
+    background-color: #ffffff;
+    border: 1px solid rgba(210, 168, 168, 0.35);
+    border-radius: 20px;
+    padding: 16px;
+    min-width: 320px;
+    box-shadow: 0 10px 26px rgba(42, 18, 23, 0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(42, 18, 23, 0.10);
+    border-color: rgba(210, 168, 168, 0.6);
+}
+
+/*Styles Card Header*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(210, 168, 168, 0.5);
+}
+
+.headerId {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.48);
+    letter-spacing: 2px;
+}
+
+.orderId {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1f1f1f;
+}
+
+/*Styles Header status Badge*/
+.statusBadge {
+    width: 150px;
+    height: 30px;
+    font-size: 12px;
+    padding-top: 6px;
+    font-weight: 700;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(210, 168, 168, 0.35);
+    background-color: rgba(253, 248, 249, 0.9);
+    white-space: nowrap;
+}
+
+.badge_wait {
+    background: rgba(238, 161, 67, 0.75);
+    border-color: rgba(184, 113, 26, 0.45);
+}
+
+.badge_selesai {
+    background: rgba(121, 248, 121, 0.75);
+    border-color: rgba(142, 246, 133, 0.45);
+}
+
+.badge_diantar {
+    background: rgba(232, 238, 58, 0.75);
+    border-color: rgba(153, 168, 41, 0.45);
+}
+
+.badge_diproses {
+    background: rgba(123, 213, 229, 0.75);
+    border-color: rgba(112, 209, 220, 0.45);
+}
+
+.badge_dibatalkan {
+    background: rgba(217, 18, 18, 0.75);
+    border-color: rgba(218, 25, 25, 0.45);
+}
+
+
+/*Styles Card Info*/
+.orderInfo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+}
+
+.infoItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoLabel {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.infoValue {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.78);
+}
+
+/*Styles Card Stats*/
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.statsCard {
+    background-color: rgba(253, 248, 249, 0.8);
+    border: 1px solid rgba(210, 168, 168, 0.5);
+    border-radius: 14px;
+    padding: 12px;
+}
+
+.statsLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color:rgba(0, 0, 0, 0.50);
+}
+
+.statsValue {
+    font-size: 20px;
+    font-weight: 900;
+    color: #1f1f1f;
+
+}
+
+/*Styles Card Footer*/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.totalLabel {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.totalValue {
+    font-size: 18px;
+    font-weight: 900;
+    color: #1f1f1f;
+}

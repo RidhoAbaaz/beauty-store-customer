@@ -1,0 +1,196 @@
+.mainLayout {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.header h3 {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2b2b2b;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 20px 1fr 1fr;
+    padding: 24px 32px 32px 32px;
+    gap: 20px 15px;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1 / span 2;
+}
+
+.toolbar p {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1f1f1f;
+}
+
+.statusBadge {
+    width: 150px;
+    height: 30px;
+    font-size: 12px;
+    padding-top: 6px;
+    font-weight: 700;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(210, 168, 168, 0.35);
+    background-color: rgba(253, 248, 249, 0.9);
+    white-space: nowrap;
+}
+
+.badge_wait {
+    background: rgba(238, 161, 67, 0.75);
+    border-color: rgba(184, 113, 26, 0.45);
+}
+
+.badge_selesai {
+    background: rgba(121, 248, 121, 0.75);
+    border-color: rgba(142, 246, 133, 0.45);
+}
+.badge_diantar {
+    background: rgba(232, 238, 58, 0.75);
+    border-color: rgba(153, 168, 41, 0.45);
+}
+.badge_diproses {
+    background: rgba(123, 213, 229, 0.75);
+    border-color: rgba(112, 209, 220, 0.45);
+}
+.badge_dibatalkan {
+    background: rgba(217, 18, 18, 0.75);
+    border-color: rgba(218, 25, 25, 0.45);
+}
+
+.itemWrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.summaryWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 16px 16px 14px;
+    border-radius: 10px;
+    background-color: rgba(253, 248, 249, 0.85);;
+    border: 1px solid rgba(210, 168, 168, 0.35);
+    box-shadow: 0 10px 24px rgba(42, 18, 23, 0.06);
+    backdrop-filter: blur(8px);
+}
+.ExpDate {
+    width: 100%;
+    border-collapse: separate;
+    height: fit-content;
+    padding: 10px;
+    text-align: start;
+    border-spacing: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.headerRow th {
+    padding: 12px 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.productName {
+    text-align: left;
+}
+
+.dateCol {
+    text-align: center;
+}
+
+.ExpDate tbody tr {
+    transition: background 0.2s ease;
+}
+
+.ExpDate tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.015);
+}
+
+.ExpDate tbody tr:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.ExpDate td {
+    padding: 14px 16px;
+    font-size: 15px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.line {
+    height: 1px;
+    border: none;
+    background: rgba(210, 168, 168, 0.5);
+    margin: 10px 0 8px;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.total p:first-child {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.total p:last-child {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.moreInfo {
+    height: fit-content;
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 0.2fr);
+    gap: 10px 15px;
+    background-color: var(--secondary-color);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 0px 25px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(6px);
+}

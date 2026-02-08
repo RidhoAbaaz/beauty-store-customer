@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--primary-bg-color);
+    height: 50px;
+}
+
+.menuItem {
+    width: 100%;
+    font-weight: 600;
+    text-decoration: none;
+    color: #2b2b2b;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.2s, transform 0.1s;
+    position: relative;
+}
+
+.menuItem::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 5px;
+    background-color: #D0A8A8;
+    transition: all 0.3s ease-in-out;
+}
+
+.menuItem:hover::before, .menuItem.active::before{
+    width: 100%;
+    left: 0;
+}

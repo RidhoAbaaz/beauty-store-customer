@@ -1,0 +1,116 @@
+.mainLayout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.header h3 {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2b2b2b;
+}
+
+.container {
+    background-color: #fdf8f9;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.productContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0 40px 0;
+    gap: 50px;
+    align-items: center;
+}
+
+.imageSlider {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0 40px 0;
+    gap: 50px;
+    align-items: center;
+}
+
+.productContainer h4 {
+    font-size: 30px;
+}
+
+.productWrap {
+    justify-content: center;
+    gap: 40px 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.secondContent {
+    display: flex;
+    padding: 20px 0 0 35px;
+    gap: 20px;
+}
+
+.card {
+    padding: 10px;
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 5px 1px black;
+    border-radius: 10px;
+    background-color: var(--table-bg-volor);
+    gap: 10px;
+    text-align: center;
+}
+
+.paginationRow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pageBtn {
+    background-color: #d0a8a8;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #2b2b2b;
+}
+
+.pageBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pageNumbers {
+    display: flex;
+    gap: 10px;
+}
+
+.pageNumBtn {
+    min-width: 32px;
+    height: 32px;
+    background-color: #efdfdf;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #2b2b2b;
+}
+
+.pageNumBtn.active {
+    background-color: #d0a8a8;
+    font-weight: 600;
+}

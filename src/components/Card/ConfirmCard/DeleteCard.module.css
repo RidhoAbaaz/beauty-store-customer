@@ -1,0 +1,56 @@
+.overlay {
+    position: fixed;
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    max-width: 320px;
+    text-align: center;
+}
+
+.message {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.4;
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btnCancel {
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* tombol konfirmasi (hapus) */
+.btnConfirm {
+    background-color: #dc2626;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btnCancel:hover,
+.btnConfirm:hover {
+    filter: brightness(0.95);
+}

@@ -1,0 +1,49 @@
+.toolbar {
+    padding-inline: 20px;
+    align-items: center;
+    height: 100px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr repeat(3, 100px);
+}
+
+.cart, .favorite, .profile {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+.cart::after {
+    text-align: center;
+    border-radius: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    content: var(--cart-length);
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #E8C6C1;
+}
+
+.favorite::after {
+    text-align: center;
+    border-radius: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    content: var(--favorite-length);
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #E8C6C1;
+}
+
+.cart:hover, .profile:hover, .favorite:hover {
+    transform: scale(1.2);
+}

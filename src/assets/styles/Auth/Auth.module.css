@@ -1,0 +1,94 @@
+.pageLayout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../../bg-login.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    border: 2px solid black;
+}
+
+.card {
+    width: 400px;
+    height: fit-content;
+    padding: 40px;
+    background: transparent;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+
+}
+
+.inputWrapp {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 25px;
+}
+
+.passwordWrap {
+    display: flex;
+    position: relative;
+    height: fit-content;
+    align-items: center;
+}
+
+.passwordWrap i {
+    position: absolute;
+    padding-top: 25px;
+    padding-right: 10px;
+    font-size: 20px;
+    right: 0;
+    top: 20;
+}
+
+.linkWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 1005;
+}
+
+.forgotPw {
+    text-decoration : underline;
+    color: black;
+    font-size: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.forgotPw:hover {
+    transform: scale(1.01);
+}
+
+.submitBtn {
+    text-decoration: none;
+    gap: 8px;
+    height: 50px;
+    background-color: #D0A8A8;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #2b2b2b;
+    transition: all 0.3s ease-in-out;
+}
+
+.submitBtn p {
+    font-size: 12px;
+}
+
+.submitBtn:hover {
+    background-color: #c89898; /* opsional agar terasa interaktif */
+    transform: scale(1.02);
+}
+
+.text {
+    text-align: center;
+    padding-top: 15px;
+}

@@ -1,0 +1,72 @@
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.sliderTrack {
+    display: flex;
+    transition: transform 350ms ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 520px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.left { 
+    left: 12px; 
+}
+.right { 
+    right: 12px; 
+}
+
+.dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.6);
+    transition: transform 150ms ease;
+}
+
+.active {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+}

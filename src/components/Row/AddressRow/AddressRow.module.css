@@ -1,0 +1,32 @@
+.card {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 100px;
+    grid-template-rows: repeat(2, 1fr);
+    background-color: rgba(253, 248, 249, 0.9);
+    border: 1px solid rgba(210, 168, 168, 0.45);
+    border-radius: 10px;
+}
+
+.card h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.actionWrap {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.actionBtn:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.number {
+    font-size: 13px;
+}

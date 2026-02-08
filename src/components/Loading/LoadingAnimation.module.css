@@ -1,0 +1,41 @@
+.loadingCircle {
+    background-color: var(--secondary-color);
+    height: 50px;
+    width: 50px;
+    position: relative;
+    border-radius: 100%;
+    animation: spin 1s ease-in-out infinite;
+}
+
+.loadingCircle::before {
+    content: "";
+    position: absolute;
+    background-color: var(--primary-bg-color);
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loadingCircle::after {
+    content: "";
+    position: absolute;
+    background-color: #ffffff;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

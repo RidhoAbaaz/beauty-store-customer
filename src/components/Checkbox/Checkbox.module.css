@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.value {
+    font-size: 15px;
+}

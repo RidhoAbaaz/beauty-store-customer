@@ -1,0 +1,48 @@
+.overlay {
+    position: fixed;
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    display: flex;
+    background-color: #ffffff;
+    border: 1px solid rgba(210, 168, 168, 0.35);
+    border-radius: 20px;
+    padding: 16px;
+    min-width: 350px;
+    min-height: 200px;
+    box-shadow: 0 10px 26px rgba(42, 18, 23, 0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;;
+}
+
+.icon {
+    font-size: 50px;
+    color: rgb(26, 243, 26);
+}
+
+.title {
+    font-size: 20px;
+}
+
+.message {
+    max-width: 350px;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #c2bbc3;
+}

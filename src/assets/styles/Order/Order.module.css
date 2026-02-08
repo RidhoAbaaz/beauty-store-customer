@@ -1,0 +1,84 @@
+.mainLayout {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.header h3 {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2b2b2b;
+}
+
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 32px 32px 32px;
+    gap: 10px;
+    background-color: #fdf8f9;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.topContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultInfo {
+    padding-top: 6px;
+    font-size: 14px;
+    color: #555;
+}
+
+.topContent label {
+    padding-top: 6px;
+}
+
+.sortSelect {
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid #e3cdd3;
+    font-size: 13px;
+    }
+
+.filterWrapper input {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #e3cdd3;
+    font-size: 13px;
+    min-width: 180px;
+    }
+
+.filterWrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.inputWrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cardWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}

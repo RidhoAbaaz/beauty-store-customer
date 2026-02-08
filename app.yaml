@@ -1,0 +1,17 @@
+service: admin
+runtime: nodejs22
+env: standard
+
+instance_class: F1
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 50
+
+handlers:
+  - url: /assets
+    static_dir: dist/assets
+
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html

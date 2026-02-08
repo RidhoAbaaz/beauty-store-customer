@@ -1,0 +1,30 @@
+.row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background: rgba(253, 248, 249, 0.55);
+    border: 1px solid rgba(210, 168, 168, 0.25);
+}
+
+.product {
+    font-size: 12px;
+    font-weight: 700;
+    max-width: 220px;
+    line-height: 1.25;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.value {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+}
