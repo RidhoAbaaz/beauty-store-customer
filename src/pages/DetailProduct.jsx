@@ -43,6 +43,8 @@ export default function DetailPage() {
 
     const baseUrl = useContext(BaseUrl);
 
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -62,42 +64,46 @@ export default function DetailPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await RequestHandler(`${baseUrl}/favorite/${id}`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                setDuplicate(prev => ({
-                    ...prev,
-                    isInFavorite: response.inFavorite
-                }))
+                if (token) {
+                    const response = await RequestHandler(`${baseUrl}/favorite/${id}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    setDuplicate(prev => ({
+                        ...prev,
+                        isInFavorite: response.inFavorite
+                    }))
+                }
             } catch (error) {
                 setErrorMessage(error.message);
                 setTimeout(() => setErrorMessage(""), 3000);
             }
         }
         fetchData();
-    }, [refresh.favorite, baseUrl, id]);
+    }, [refresh.favorite, baseUrl, id, token]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await RequestHandler(`${baseUrl}/cart/${id}`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                setDuplicate(prev => ({
-                    ...prev,
-                    isInCart: response.inCart
-                }))
+                if (token) {
+                    const response = await RequestHandler(`${baseUrl}/cart/${id}`, {
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        }
+                    });
+                    setDuplicate(prev => ({
+                        ...prev,
+                        isInCart: response.inCart
+                    }))
+                }
             } catch (error) {
                 setErrorMessage(error.message);
                 setTimeout(() => setErrorMessage(""), 3000);
             }
         }
         fetchData();
-    }, [baseUrl, id, refresh.cart]);
+    }, [baseUrl, id, refresh.cart, token]);
     
 
     const price = useMemo(() => {

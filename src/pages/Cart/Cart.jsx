@@ -39,16 +39,20 @@ export default function Cart() {
 
     const location = useLocation();
 
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await RequestHandler(`${baseUrl}/cart`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                setProductId(response.carts);
+                if (token) {
+                    const response = await RequestHandler(`${baseUrl}/cart`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    setProductId(response.carts);
+                }
             } catch (error) {
                 if (error.message === "token not found") {
                     setErrorMessage(error.message);
@@ -65,7 +69,7 @@ export default function Cart() {
             }
         }
         fetchData();
-    }, [baseUrl, navigation, refresh]);
+    }, [baseUrl, navigation, refresh, token]);
 
     useEffect(() => {
         const fetchData = async () => {

@@ -22,18 +22,22 @@ export default function Favorite() {
     const [errorMessage, setErrorMessage] = useState("");
 
     const baseUrl = useContext(BaseUrl);
-    const navigation = useNavigate()
+    const navigation = useNavigate();
+
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await RequestHandler(`${baseUrl}/favorite`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                setFavorite(response.favorites);
+                if (token) {
+                    const response = await RequestHandler(`${baseUrl}/favorite`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    setFavorite(response.favorites);
+                }
             } catch (error) {
                 if (error.message === "token not found") {
                 setErrorMessage(error.message);
@@ -50,7 +54,7 @@ export default function Favorite() {
             }
         }
         fetchData();
-    }, [baseUrl, navigation]);
+    }, [baseUrl, navigation, token]);
 
     const sortBy = (data, method) => {
         const copy = [...data];

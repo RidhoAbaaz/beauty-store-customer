@@ -15,10 +15,10 @@ import ProfilePage from '../pages/ProfilePage';
 
 
 export default function Routers() {
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     return (
         <Routes>
-            <Route path='/' element={ token ? <Navigate to="/home" /> : <Navigate to="/login" /> } />
+            <Route path='/' element={  <Navigate to="/home" /> } />
             <Route path='/home' element={ <Home/> } />
             <Route path='/Shop' element={ <Shop />} />
             <Route path='/Favorite' element={ <Favorite /> } />

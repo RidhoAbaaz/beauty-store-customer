@@ -18,17 +18,21 @@ export default function History() {
     const navigation = useNavigate();
 
     const baseUrl = useContext(BaseUrl);
+
+    const token = localStorage.getItem("token");
     
     useEffect(() => {
             const fetchData = async () => {
                 setLoading(true);
                 try {
-                    const response = await RequestHandler(`${baseUrl}/history`, {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('token')}`
-                        }
-                    });
-                    setHistory(response.histories);
+                    if (token) {
+                        const response = await RequestHandler(`${baseUrl}/history`, {
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+                        setHistory(response.histories);
+                    }
                 } catch (error) {
                     if (error.message === "token not found") {
                     setErrorMessage(error.message);
@@ -45,7 +49,7 @@ export default function History() {
                 }
             }
             fetchData();
-        }, [baseUrl, navigation]);
+        }, [baseUrl, navigation, token]);
 
     const location = useLocation();
     const params = new URLSearchParams(location.search);

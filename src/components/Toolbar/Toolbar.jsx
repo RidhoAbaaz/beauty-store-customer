@@ -16,25 +16,32 @@ export default function Toolbar({ trigger }) {
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState("");
 
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response  = await RequestHandler(`${baseUrl}/toolbar`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
+                if (token) {
+                    const response  = await RequestHandler(`${baseUrl}/toolbar`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    setFavoriteCount(response.favoriteCount);
+                    setCartCount(response.cartCount);
+                }
 
-                setFavoriteCount(response.favoriteCount);
-                setCartCount(response.cartCount);
             } catch (error) {
-                if (error.message === "token not found") {
+                // if (error.message === "token not found") {
+                //     setErrorMessage(error.message);
+                //     setTimeout(() => {
+                //         setErrorMessage("");
+                //         navigation('/login');
+                //     }, 3000)
                     setErrorMessage(error.message);
                     setTimeout(() => {
                         setErrorMessage("");
-                        navigation('/login');
                     }, 3000)
-                }
                 setErrorMessage(error.message);
                 setTimeout(() => setErrorMessage(""), 3000);
             } finally {
@@ -42,7 +49,7 @@ export default function Toolbar({ trigger }) {
             }
         }
         fetchData();
-    }, [baseUrl, navigation, trigger])
+    }, [baseUrl, navigation, trigger, token])
 
 
     const location = useLocation();

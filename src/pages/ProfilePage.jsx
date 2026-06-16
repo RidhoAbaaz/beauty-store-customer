@@ -13,6 +13,7 @@ import { BaseUrl } from '../context/BaseUrl';
 import LoadingCard from '../components/Card/LoadingCard/LoadingCard';
 import ErrorCard from '../components/Card/ErrorCard/ErrorCard';
 import SuccessCard from '../components/Card/SuccessCard/SuccessCard';
+import NavButton from '../components/Button/NavButton';
 
 export default function ProfilePage() {
     const [profile, setProfile] = useState({});
@@ -45,6 +46,8 @@ export default function ProfilePage() {
         navigation('/login')
     }
 
+    const token = localStorage.getItem("token");
+
     const deleteHandler = async () => {
         setLoading(true);
         setView("")
@@ -52,7 +55,7 @@ export default function ProfilePage() {
             const response = await RequestHandler(`${baseUrl}/address/${addressId}`, {
                 method: "DELETE",
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${token}`
                 }
             });
             setSuccessMessage(response.message);
@@ -82,12 +85,14 @@ export default function ProfilePage() {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await RequestHandler(`${baseUrl}/profile`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                setProfile(response.user);
+                if (token) {
+                    const response = await RequestHandler(`${baseUrl}/profile`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    setProfile(response.user);
+                }
             } catch (error) {
                 if (error.message === "token not found") {
                     setErrorMessage(error.message);
@@ -106,7 +111,7 @@ export default function ProfilePage() {
             }
         }
         fetchData();
-    }, [baseUrl, navigation, refresh])
+    }, [baseUrl, navigation, refresh, token])
 
     return (
         <section className={styles.pageLayout}>
@@ -115,37 +120,46 @@ export default function ProfilePage() {
                 <NavBar />
             </header>
             {
-                loading ? <LoadingCard /> : (
-                    <main className={styles.mainContent}>
-                        <h3 className={styles.title}>My Profile</h3>
-                        <Info label="Username" data={profile.name} fontLabel="15px"/>
-                        <Info label="Email" data={profile.email}  fontLabel="15px"/>
-                        <Info label="Phone Number" data={profile.phone_number}  fontLabel="15px" />
-                        <Info label="Status" data={profile.role}  fontLabel="15px" />
-                        <div className={styles.addressContainer}>
-                            <h3>Address</h3>
-                            <div className={styles.addressWrapper}>
-                                {
-                                    profile.address && profile.address.map(item => 
-                                        <AddressRow 
-                                            key={item.address_id} 
-                                            reveiver={item.receiver} 
-                                            address={item.address} 
-                                            phoneNumber={item.phone_number}
-                                            handler={(view) => getId(item.address_id, view)} />
-                                    )
-                                }
+                loading ? <LoadingCard /> : ( 
+                    !token ? (
+                        <main className={styles.empty}>
+                            <h5>kamu belum mempunyai akun, silahkan buat akun terlebih dahulu</h5>
+                            <NavButton teks="Add Now" height="30px" width="100px" path="/register">
+                                <i className="bi bi-person-add"></i>
+                            </NavButton>
+                        </main>
+                    ) : (
+                        <main className={styles.mainContent}>
+                            <h3 className={styles.title}>My Profile</h3>
+                            <Info label="Username" data={profile.name} fontLabel="15px"/>
+                            <Info label="Email" data={profile.email}  fontLabel="15px"/>
+                            <Info label="Phone Number" data={profile.phone_number}  fontLabel="15px" />
+                            <Info label="Status" data={profile.role}  fontLabel="15px" />
+                            <div className={styles.addressContainer}>
+                                <h3>Address</h3>
+                                <div className={styles.addressWrapper}>
+                                    {
+                                        profile.address && profile.address.map(item => 
+                                            <AddressRow 
+                                                key={item.address_id} 
+                                                reveiver={item.receiver} 
+                                                address={item.address} 
+                                                phoneNumber={item.phone_number}
+                                                handler={(view) => getId(item.address_id, view)} />
+                                        )
+                                    }
+                                </div>
+                                <button className={styles.addBtn} onClick={() => setView("add")}>
+                                    <p>Add Address</p>
+                                    <i className="bi bi-house-add"></i>
+                                </button>
+                                <button className={styles.addBtn} onClick={handleLogout}>
+                                    <p>Log Out</p>
+                                    <i class="bi bi-box-arrow-right"></i>
+                                </button>
                             </div>
-                            <button className={styles.addBtn} onClick={() => setView("add")}>
-                                <p>Add Address</p>
-                                <i className="bi bi-house-add"></i>
-                            </button>
-                            <button className={styles.addBtn} onClick={handleLogout}>
-                                <p>Log Out</p>
-                                <i class="bi bi-box-arrow-right"></i>
-                            </button>
-                        </div>
-                    </main>
+                        </main>
+                    )
                 )
             }
             { view === "add" && 

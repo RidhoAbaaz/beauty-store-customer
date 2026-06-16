@@ -23,16 +23,20 @@ export default function Order() {
 
     const baseUrl = useContext(BaseUrl);
 
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await RequestHandler(`${baseUrl}/userOrder`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                setOrders(response.orders)
+                if (token) {
+                    const response = await RequestHandler(`${baseUrl}/userOrder`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    setOrders(response.orders)
+                }
             } catch (error) {
                 if (error.message === "token not found") {
                     setErrorMessage(error.message);
@@ -49,7 +53,7 @@ export default function Order() {
             }
         }
         fetchData();
-    }, [baseUrl,navigation]);
+    }, [baseUrl,navigation, token]);
 
     const filteredOrder = orders.filter(item => { 
         return (
@@ -102,7 +106,7 @@ export default function Order() {
                                         <OrderCard 
                                             orderID={item.order_id} 
                                             status={item.status}
-                                            date={item.craete_at}
+                                            date={item.create_at.slice(0, 10)}
                                             payment={item.payment}
                                             totalProduct={item.total_product}
                                             totalItem={item.total_item}
