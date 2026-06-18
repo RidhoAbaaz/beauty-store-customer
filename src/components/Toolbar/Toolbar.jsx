@@ -30,18 +30,14 @@ export default function Toolbar({ trigger }) {
                     setFavoriteCount(response.favoriteCount);
                     setCartCount(response.cartCount);
                 }
-
             } catch (error) {
-                // if (error.message === "token not found") {
-                //     setErrorMessage(error.message);
-                //     setTimeout(() => {
-                //         setErrorMessage("");
-                //         navigation('/login');
-                //     }, 3000)
+                if (error.message === "token not found") {
                     setErrorMessage(error.message);
                     setTimeout(() => {
                         setErrorMessage("");
+                        navigation('/login');
                     }, 3000)
+                }
                 setErrorMessage(error.message);
                 setTimeout(() => setErrorMessage(""), 3000);
             } finally {
